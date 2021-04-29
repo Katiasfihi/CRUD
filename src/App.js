@@ -1,6 +1,8 @@
 
 import React from 'react';
+import ListItems from './ListItems' 
 import './App.css';
+import { librairy } from '@fortawesome/free-solid-svg-icons'
 
 class App extends React.Component {
   constructor(props){
@@ -28,6 +30,15 @@ class App extends React.Component {
     e.preventDefault();
     const newItem = this.state.currentItem;
     console.log(newItem)
+    if(newItem.text!==''){
+      const newItems=[...this.state.items, newItem];
+      this.setState({
+        currentItem:{
+          text:'',
+          key:''
+         }   
+      })
+    }
   }
 
   render() {
@@ -36,11 +47,12 @@ class App extends React.Component {
         <header>
           <form id='to-do-form' onSubmit={this.addItem}>
             <input type='text' placeholder='Enter Text'
-            value={this.state.currentItem}
+            
             onChange={this.handleInput}/>
             <button type='submit'>Add</button>
           </form>
         </header>
+        <ListItems items= {this.state.items} ></ListItems>
       </div>
       
     )
