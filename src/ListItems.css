@@ -5,8 +5,20 @@
   height: 50px;
   max-width: 20px auto;
   border-radius: 5px;
+  margin: 20px;
 }
 
 .list p {
   padding: 10px;
+  position: relative;
+}
+.list p span {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+
+.faicons {
+  font-size: 15px;
+  margin: 0 5px;
 }

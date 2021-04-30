@@ -1,19 +1,23 @@
 import React from 'react'
 import './ListItems.css'
-import { FontAwesomeIcon } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function ListItems(props){
 
     const items = props.items;
     const listItems = items.map(item =>
         {
-            return <div className='list' key='item.key'>
-                <p>{item.text}</p>
-                <span>   
-                    <FontAwesomeIcon className="faicons" onClick={() => {
-                        props.deleteItem(item.key)
-                    }} icon="trash" />
-                </span>
+            return <div className='list' key={item.key}>
+                <p>{item.text} 
+                    <span>   
+                        <FontAwesomeIcon className="faicons" onClick={() => {
+                            props.deleteItem(item.key)
+                        }} icon='trash' 
+                        onClick={ () => props.deleteItem(item.key)}
+                        />
+                    </span>
+                </p>
+                
             </div>
         })
 
